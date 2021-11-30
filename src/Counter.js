@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Counter.css'
 
 class Counter extends Component {
     constructor(props) {
@@ -8,6 +9,31 @@ class Counter extends Component {
             count: 0
         };
     }
+
+    componentDidMount() {
+        var input = document.getElementById("assign");
+
+        input.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("assignbutton").click();
+            }
+        });
+    }
+
+    setValue = event => {
+        let assignedValue = parseInt(document.getElementById("assign").value, 10);
+
+        // checking for NaN
+        if (assignedValue !== assignedValue) {
+            assignedValue = 0
+        }
+
+        this.setState({
+            count: parseInt(assignedValue, 10)
+        });
+    };
+
 
     increment = () => {
         let currentCount = this.state.count
@@ -27,13 +53,21 @@ class Counter extends Component {
 
     render() {
         return (
-            <div>
-                <div className="container my-3">
-                    <h1>Count: {this.state.count}</h1>
+            <div className="row">
+                <div className="container col redborder">
+                    <div className="input-group my-3">
+                        <input type="number" id="assign" className="form-control" placeholder="Put a number" />
+                        <button id="assignbutton" className="input-group-text" onClick={this.setValue}>Assign</button>
+                    </div>
+                    <div className="btn-group">
+                        <button className="btn btn-warning" onClick={this.increment}>Up</button>
+                        <button className="btn btn-info" onClick={this.decrement}>Down</button>
+                    </div>
                 </div>
-                <div className="container my-3 btn-group">
-                    <button className="btn btn-warning btn-lg" type="button" onClick={this.increment}>Increment</button>
-                    <button className="btn btn-info btn-lg" type="button" onClick={this.decrement}>Decrement</button>
+                <div className="container col">
+                    <div className="redborder my-3">
+                        <h1 className="left">{this.state.count}</h1>
+                    </div>
                 </div>
             </div>
         )

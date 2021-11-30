@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
     return (
-        <div className="container custom p-5 bg-dark text-white text-center">
+        <div className="container custom p-5 bg-dark text-white ">
             <Counter />
         </div>
     );
