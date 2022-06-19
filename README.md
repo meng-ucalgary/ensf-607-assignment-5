@@ -1,25 +1,19 @@
-# Lab Assignment 5
+# ENSF-607 Assignment 5
 
-ENSF 607 - Fall 2021
+An assignment on creating a simple counter app using ReactJS.
 
+## How to build and run
 
-## Due Dates
+1. Clone the repository on your machine, or download the zip file
 
-Submission before 11:59 PM on Wednesday, October 1
+2. Install the dependencies
 
-
-## Objectives
-
-A simple counter app using react
-
-
-## How to run
-
-+ Clone the repo
-
-+ Run the below commands inside cloned directory
-
+   ```bash
+   $ npm install
    ```
-   npm install
-   npm start
+
+3. Run the development build
+
+   ```bash
+   $ npm start
    ```
